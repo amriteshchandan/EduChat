@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'profile/show'
+
+  get 'chat/conversation'
+
   root 'home#index'
 
   devise_for :users, controllers: {registrations: "registrations"}
