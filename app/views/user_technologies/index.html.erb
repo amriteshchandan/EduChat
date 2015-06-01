@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing User Technologies</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Technology</th>
+      <th>Technology type</th>
+      <th>Expertise</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @user_technologies.each do |user_technology| %>
+      <tr>
+        <td><%= user_technology.user_id %></td>
+        <td><%= user_technology.technology_id %></td>
+        <td><%= user_technology.technology_type %></td>
+        <td><%= user_technology.expertise %></td>
+        <td><%= link_to 'Show', user_technology %></td>
+        <td><%= link_to 'Edit', edit_user_technology_path(user_technology) %></td>
+        <td><%= link_to 'Destroy', user_technology, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New User technology', new_user_technology_path %>

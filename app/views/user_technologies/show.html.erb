@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @user_technology.user_id %>
+</p>
+
+<p>
+  <strong>Technology:</strong>
+  <%= @user_technology.technology_id %>
+</p>
+
+<p>
+  <strong>Technology type:</strong>
+  <%= @user_technology.technology_type %>
+</p>
+
+<p>
+  <strong>Expertise:</strong>
+  <%= @user_technology.expertise %>
+</p>
+
+<%= link_to 'Edit', edit_user_technology_path(@user_technology) %> |
+<%= link_to 'Back', user_technologies_path %>
