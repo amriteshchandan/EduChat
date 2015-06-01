@@ -49,3 +49,5 @@ end
 gem 'bootstrap-sass'
 
 gem 'acts_as_tree', '~> 2.1.0'
+
+gem 'paperclip'

@@ -13,6 +13,14 @@
 
 ActiveRecord::Schema.define(version: 20150529151627) do
 
+  create_table "chats", force: :cascade do |t|
+    t.string   "message"
+    t.integer  "sender_id"
+    t.integer  "receiver_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
   create_table "technologies", force: :cascade do |t|
     t.string   "name"
     t.integer  "rate"
@@ -51,6 +59,10 @@ ActiveRecord::Schema.define(version: 20150529151627) do
     t.string   "unconfirmed_email"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
