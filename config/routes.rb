@@ -1,6 +1,13 @@
 Rails.application.routes.draw do
+<<<<<<< HEAD
   resources :user_technologies
   resources :technologies
+=======
+  get 'profile/show'
+
+  get 'chat/conversation'
+
+>>>>>>> 5b31cad121b6eab29c1b61b85e74ac2cbf271db0
   root 'home#index'
 
   devise_for :users, controllers: {registrations: "registrations"}
