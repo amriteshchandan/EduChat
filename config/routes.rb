@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+
+  resources :user_technologies
+  resources :technologies
+
   get 'profile/show'
 
   get 'chat/conversation'
