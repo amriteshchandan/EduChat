@@ -54,4 +54,6 @@ Rails.application.configure do
       :authentication => 'login',
       :enable_starttls_auto => true,
     }
+
+    config.gem 'paperclip'
 end

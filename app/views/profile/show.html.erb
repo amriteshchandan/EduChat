@@ -5,5 +5,5 @@
 
 <h5>Choose whom u wanna chat to</h5>
 <% @users.each do |u| %>
-	<%= link_to u.name, chat_conversation_path(:recv_user_id => u.id) %><br />
+	<%= link_to u.name, chat_conversation_path(:receiver_user_id => u.id), method: :post %><br />
 <% end %>

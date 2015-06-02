@@ -6,6 +6,7 @@ gem 'rails', '4.2.1'
 # For authentication
 gem 'devise'
 gem 'jquery-ui-rails'
+gem 'paperclip'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 # Use SCSS for stylesheets
