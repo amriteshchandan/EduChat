@@ -1,7 +1,11 @@
 class HomeController < ApplicationController
   def index
   	if user_signed_in?
-  		redirect_to profile_show_path
+  		if current_user.sign_in_count > 1
+  			redirect_to profile_show_path
+  		else
+  			redirect_to edit_user_registration_path
+  		end
   	end
   end
 end
