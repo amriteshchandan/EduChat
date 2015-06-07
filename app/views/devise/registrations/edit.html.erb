@@ -3,14 +3,16 @@
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, :multipart => true }) do |f| %>
   <%= devise_error_messages! %>
 
-  <div class="field">
-    <%=  f.label :avatar, 'Profile pic'%>
-    <%= f.file_field :avatar %>
-  </div>
+  
 
   <div class="field">
     <%= f.label :name %><br />
     <%= f.text_field :name, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <%=  f.label :avatar, 'Profile pic'%>
+    <%= f.file_field :avatar %>
   </div>
 
   <div class="field">
@@ -29,7 +31,7 @@
 
   <div class="field">
     <%= f.label :dob %><br />
-    <%= f.date_select :dob %>
+    <%= f.text_field :dob %>
   </div>
 
   <div class="field">
@@ -62,3 +64,8 @@
 <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
 
 <%= link_to "Back", :back %>
+
+  <script type="text/javascript">
+    $('#user_dob').datepicker()
+      dateFormat: 'yy-mm-dd'
+  </script>
