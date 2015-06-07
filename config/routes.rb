@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   resources :user_technologies
   resources :technologies
 
-  get 'profile/show'
+  get 'profile/',to: 'profile#show', as: 'profile'
 
   get 'chat/conversation'
 
