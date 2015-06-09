@@ -1,6 +1,6 @@
 class UserTechnologiesController < ApplicationController
   before_action :set_user_technology, only: [:show, :edit, :update, :destroy]
-
+=begin
   # GET /user_technologies
   # GET /user_technologies.json
   def index
@@ -23,6 +23,7 @@ class UserTechnologiesController < ApplicationController
 
   # POST /user_technologies
   # POST /user_technologies.json
+
   def create
     @user_technology = UserTechnology.new(user_technology_params)
 
@@ -36,6 +37,7 @@ class UserTechnologiesController < ApplicationController
       end
     end
   end
+
 
   # PATCH/PUT /user_technologies/1
   # PATCH/PUT /user_technologies/1.json
@@ -69,6 +71,24 @@ class UserTechnologiesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_technology_params
-      params.require(:user_technology).permit(:user_id, :technology_id, :technology_type, :expertise)
+      params.require(:user_technology).permit(:user_id, :technology_id, :technology_type)
     end
+=end
+
+  def create
+    u_id = params["user_id"].to_i
+    known_tech = params["user_technology"]["known"]
+    interested_tech = params["user_technology"]["interested"]
+    known_tech.delete_at(0) if known_tech[0] == ""
+    interested_tech.delete_at(0) if interested_tech[0] == ""
+    known_tech.collect! { |arr| arr.to_i }
+    interested_tech.collect! { |arr| arr.to_i }
+    known_tech.each do |arr|
+      UserTechnology.create(user_id: u_id, technology_id: arr, technology_type: "known")
+    end
+    interested_tech.each do |arr|
+      UserTechnology.create(user_id: u_id, technology_id: arr, technology_type: "interested")
+    end
+    redirect_to profile_url
+  end
 end
