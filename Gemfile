@@ -25,5 +25,7 @@ group :development, :test do
 end
 
 gem 'bootstrap-sass'
+gem "font-awesome-rails"
 gem 'acts_as_tree', '~> 2.1.0'
 gem 'paperclip'
+gem 'mailboxer'

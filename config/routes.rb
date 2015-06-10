@@ -1,17 +1,32 @@
 Rails.application.routes.draw do
 
   resources :user_technologies
+  
   get 'interests/', to: 'user_technologies#new', as: 'interests'
+  
   post 'user_technologies/create'
   resources :technologies
 
   get 'profile/',to: 'profile#show', as: 'profile'
 
-  get 'chat/conversation'
 
   root 'home#index'
 
   devise_for :users, controllers: {registrations: "registrations"}
+
+    # mailbox folder routes
+  get "mailbox/inbox" => "mailbox#inbox", as: :mailbox_inbox
+  get "mailbox/sent" => "mailbox#sent", as: :mailbox_sent
+  get "mailbox/trash" => "mailbox#trash", as: :mailbox_trash
+
+    # conversations
+  resources :conversations do
+    member do
+      post :reply
+      post :trash
+      post :untrash
+    end
+  end
 
 
   # The priority is based upon order of creation: first created -> highest priority.

@@ -1,12 +1,12 @@
 class UserTechnologiesController < ApplicationController
   before_action :set_user_technology, only: [:show, :edit, :update, :destroy]
-=begin
+
   # GET /user_technologies
   # GET /user_technologies.json
   def index
     @user_technologies = UserTechnology.all
   end
-
+=begin
   # GET /user_technologies/1
   # GET /user_technologies/1.json
   def show
