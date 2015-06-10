@@ -10,6 +10,6 @@ class RegistrationsController < Devise::RegistrationsController
 		end
 
 		def after_update_path_for(resource)
-      		profile_path
+      		interests_path
     	end
 end

@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
   resources :user_technologies
+  get 'interests/', to: 'user_technologies#new', as: 'interests'
+  post 'user_technologies/create'
   resources :technologies
 
   get 'profile/',to: 'profile#show', as: 'profile'

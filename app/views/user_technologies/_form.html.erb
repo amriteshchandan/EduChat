@@ -1,33 +1,15 @@
-<%= form_for(@user_technology) do |f| %>
-  <% if @user_technology.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@user_technology.errors.count, "error") %> prohibited this user_technology from being saved:</h2>
-
-      <ul>
-      <% @user_technology.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :user_id %><br>
-    <%= f.number_field :user_id %>
-  </div>
-  <div class="field">
-    <%= f.label :technology_id %><br>
-    <%= f.number_field :technology_id %>
-  </div>
-  <div class="field">
-    <%= f.label :technology_type %><br>
-    <%= f.text_field :technology_type %>
-  </div>
-  <div class="field">
-    <%= f.label :expertise %><br>
-    <%= f.number_field :expertise %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+<br>
+<%= form_for :user_technology, url: 'user_technologies' do |f| %>
+  <strong><%= f.label "Known Technologies" %></strong>
+      <%= f.select(:known, Technology.all.collect {|p| [ p.name, p.id ]},
+                                                         {include_blank: false},
+                                                         {multiple: true, class: "chosen-select form-control"}
+                                                         )%><br> <br>
+  <strong><%= f.label "Interested Technologies" %></strong>
+      <%= f.select(:interested, Technology.all.collect {|p| [ p.name, p.id ]},
+                                                         {include_blank: false},
+                                                         {multiple: true, class: "chosen-select form-control"}
+                                                         )%><br> <br>  
+  <%= hidden_field_tag :user_id, current_user.id %>                                                       
+  <%= f.submit %>
 <% end %>

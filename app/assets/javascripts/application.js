@@ -12,10 +12,8 @@
 //
 //= require jquery
 //= require jquery_ujs
-<<<<<<< HEAD
+//= require chosen-jquery
 //= require jquery-ui/datepicker
-=======
 //= require bootstrap-sprockets
->>>>>>> 7815e63bdc147f3ff774a35a6548b8ce3fc28b4e
 //= require turbolinks
 //= require_tree .
