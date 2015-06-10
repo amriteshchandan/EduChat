@@ -15,7 +15,6 @@
     <% @technologies.each do |technology| %>
       <tr>
         <td><%= technology.name %></td>
-        <td><%= technology.rate %></td>
         <td><%= link_to 'Show', technology %></td>
         <td><%= link_to 'Edit', edit_technology_path(technology) %></td>
         <td><%= link_to 'Destroy', technology, method: :delete, data: { confirm: 'Are you sure?' } %></td>
