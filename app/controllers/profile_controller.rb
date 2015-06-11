@@ -2,6 +2,6 @@ class ProfileController < ApplicationController
 	before_action :authenticate_user!
   	
   	def show
-  		#@users = User.all
+  		@technologies = current_user.technologies
   	end
 end

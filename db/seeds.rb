@@ -56,3 +56,4 @@ Technology.create(name: "PostgreSQL")
 Technology.create(name: "PhoneGap")
 Technology.create(name: "HTTP")
 Technology.create(name: "SOAP")
+puts "seeding completed"
