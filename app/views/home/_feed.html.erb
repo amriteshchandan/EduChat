@@ -1,0 +1,9 @@
+<% if user_signed_in? %>
+	<% if @feed_items.any? %>
+		<ul class="row">
+			<%= render @feed_items %>
+		</ul>
+		<%= will_paginate @feed_items %>
+	<% end -%>
+
+<% end -%>
