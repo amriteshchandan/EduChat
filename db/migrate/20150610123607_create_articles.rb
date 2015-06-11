@@ -11,5 +11,4 @@ class CreateArticles < ActiveRecord::Migration
     add_index :articles, :user_id
     add_index :articles, :technology_id
   end
-  
 end
