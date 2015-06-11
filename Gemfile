@@ -29,3 +29,4 @@ gem "font-awesome-rails"
 gem 'acts_as_tree', '~> 2.1.0'
 gem 'paperclip'
 gem 'mailboxer'
+gem 'will_paginate'

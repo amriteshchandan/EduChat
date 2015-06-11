@@ -1,4 +1,5 @@
 <br>
+
 <h4>your profile</h4>
 <hr />
 
@@ -14,6 +15,13 @@
 	<div class="col-md-8">
 		<div class="jumbotron well">
 			Posts by Current user(me)
+			<% if @user.articles.any? %>
+				<h3>Articles (<%= @user.articles.count %>)</h3>
+				<ol class="panel">
+					<%= render partial: 'articles/article' %>
+				</ol>
+				<%= will_paginate @articles %>
+			<% end -%>
 		</div>
 	</div>
 </div>
