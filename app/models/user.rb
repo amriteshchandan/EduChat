@@ -21,5 +21,8 @@ class User < ActiveRecord::Base
     self.email
   end
 
+  def feed
+    Article.where("user_id = ?", id)
+  end
 
 end
