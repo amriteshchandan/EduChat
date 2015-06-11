@@ -18,7 +18,7 @@
 			<% if @user.articles.any? %>
 				<h3>Articles (<%= @user.articles.count %>)</h3>
 				<ol class="panel">
-					<%= render partial: 'articles/article' %>
+					<%= render @articles %>
 				</ol>
 				<%= will_paginate @articles %>
 			<% end -%>
