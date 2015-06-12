@@ -89,6 +89,6 @@ class UserTechnologiesController < ApplicationController
     interested_tech.each do |arr|
       UserTechnology.create(user_id: u_id, technology_id: arr, technology_type: "interested")
     end
-    redirect_to profile_url
+    redirect_to root_url
   end
 end
