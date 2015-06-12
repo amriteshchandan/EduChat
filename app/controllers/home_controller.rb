@@ -15,5 +15,6 @@ class HomeController < ApplicationController
     else
       render 'home/index'
   	end
+  
   end
 end
