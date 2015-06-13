@@ -14,7 +14,7 @@
 <h4><%=  @article.technology.name %></h4>
 
 <h3>User Name</h3>
-<h4><%=  @article.user.name %></h4>
+<h4><%= @article.user.name %></h4>
 
 <h3>Created_At</h3>
 <h4><%=  @article.created_at %></h4>
@@ -24,8 +24,11 @@
 
 <%= link_to "Edit", edit_article_path(@article), class: "btn" %>
 
-<h2><%= @article.comments.count %>&nbspComments</h2>
-<%= render @article.comments %>
-<h3>Rply To Article</h3>
-<%= render "comments/form" %>
 
+	<h2><%= @article.comments.count %>&nbspComments</h2>
+	<div class="comments">
+	<%= render @article.comments %>
+	</div>
+	<h3>Rply To Article</h3>
+	<%= render "comments/form" %>	
+</div>
