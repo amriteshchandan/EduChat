@@ -11,11 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 20150613173012) do
-=======
 ActiveRecord::Schema.define(version: 20150613173013) do
->>>>>>> amritesh
 
   create_table "articles", force: :cascade do |t|
     t.string   "title"
@@ -45,8 +41,6 @@ ActiveRecord::Schema.define(version: 20150613173013) do
   add_index "ckeditor_assets", ["assetable_type", "assetable_id"], name: "idx_ckeditor_assetable"
   add_index "ckeditor_assets", ["assetable_type", "type", "assetable_id"], name: "idx_ckeditor_assetable_type"
 
-<<<<<<< HEAD
-=======
   create_table "comments", force: :cascade do |t|
     t.text     "comment"
     t.integer  "user_id"
@@ -58,7 +52,6 @@ ActiveRecord::Schema.define(version: 20150613173013) do
   add_index "comments", ["article_id"], name: "index_comments_on_article_id"
   add_index "comments", ["user_id"], name: "index_comments_on_user_id"
 
->>>>>>> amritesh
   create_table "mailboxer_conversation_opt_outs", force: :cascade do |t|
     t.integer "unsubscriber_id"
     t.string  "unsubscriber_type"
