@@ -2,7 +2,7 @@
 <h4><%=  @article.title %></h4>
 
 <h3>Content</h3>
-<h4><%=  @article.content %></h4>
+<h4><%= simple_format (@article.content) %></h4>
 
 <h3>Technplogy_Id</h3>
 <h4><%=  @article.technology_id %></h4>
