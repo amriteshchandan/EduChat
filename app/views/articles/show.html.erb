@@ -23,3 +23,9 @@
 <h4><%=  @article.updated_at %></h4>
 
 <%= link_to "Edit", edit_article_path(@article), class: "btn" %>
+
+<h2><%= @article.comments.count %>&nbspComments</h2>
+<%= render @article.comments %>
+<h3>Rply To Article</h3>
+<%= render "comments/form" %>
+
