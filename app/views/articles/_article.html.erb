@@ -1,8 +1,9 @@
-<ol>
+<ul>
 	<span><%# link_to @article.user.name, @article.user %></span>
 	<% @articles.each do |article| %>
 		
 		<strong><%= article.title %></strong> 
+		
 		<%= article.content %>
 
 		<span class="timestamp">
@@ -12,4 +13,4 @@
 	  	<br>
 	  	
 	<% end -%>
-</ol>
+</ul>
