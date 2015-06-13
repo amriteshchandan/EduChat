@@ -1,7 +1,13 @@
 Rails.application.routes.draw do
 
   mount Ckeditor::Engine => '/ckeditor'
+<<<<<<< HEAD
   resources :articles
+=======
+  resources :articles do
+    resources :comments
+  end
+>>>>>>> amritesh
   resources :user_technologies
   
   get 'interests/', to: 'user_technologies#new', as: 'interests'
