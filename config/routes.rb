@@ -10,9 +10,10 @@ Rails.application.routes.draw do
 
   get 'profile/',to: 'profile#show', as: 'profile'
 
-  get 'users/index'
-  get 'users/:name', to: 'users#show', as: 'user_profile'
-
+# users controller
+  get 'user/index'
+  get 'user/:id', to: 'user#show', as: 'user_profile'
+#
   root 'home#index'
 
   devise_for :users, controllers: {registrations: "registrations"}

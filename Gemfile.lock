@@ -73,6 +73,9 @@ GEM
       railties (>= 3.0)
       sass-rails (>= 3.2)
     chunky_png (1.3.4)
+    ckeditor (4.1.2)
+      cocaine
+      orm_adapter (~> 0.5.0)
     climate_control (0.0.3)
       activesupport (>= 3.0)
     cocaine (0.5.7)
@@ -240,6 +243,7 @@ DEPENDENCIES
   bootstrap-sass
   byebug
   chosen-rails
+  ckeditor
   coffee-rails (~> 4.1.0)
   compass-rails!
   devise
