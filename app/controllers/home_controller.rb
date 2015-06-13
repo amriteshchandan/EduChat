@@ -1,6 +1,7 @@
 class HomeController < ApplicationController
   @@a = 1
   def index
+    @users = User.all
   	@articles = Article.all
   	if user_signed_in?
       @article = current_user.articles.build
