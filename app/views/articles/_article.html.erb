@@ -4,11 +4,11 @@
 		
 		<li><strong><%= article.title %></strong></li> &nbsp;
 		
-		<%= truncate article.content , length: 100, omission: '...(continued)' %>
+		<%= truncate(article.content.html_safe, length: 150) { link_to "Continue", article_path(article) } %>
 
 		<small class="timestamp">
-	    	| Posted <%= time_ago_in_words(article.created_at) %> ago. | 
-	    	<%= link_to "show full article", article_path(article) %> | 
+	    	| Posted <%= time_ago_in_words(article.created_at) %> ago.
+	    	<%# link_to "show full article", article_path(article) %> | 
 	    	<%= link_to "delete", article, method: :delete, data: { confirm: "Sure ?" } %>
 	  	</small>
 	  	<br>
