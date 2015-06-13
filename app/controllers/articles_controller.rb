@@ -6,7 +6,7 @@ class ArticlesController < ApplicationController
 
 	def new
 		@article = current_user.articles.build
-		@tech_collection = UserTechnology.where("user_id = ? AND technology_type = ?", current_user.id, "known")
+		
 	end
 
 	def create
@@ -15,7 +15,7 @@ class ArticlesController < ApplicationController
 			flash[:success] = "Article created"
 			redirect_to @article
 		else
-			redirect_to root_url	
+			render :new	
 		end
 	end
 
