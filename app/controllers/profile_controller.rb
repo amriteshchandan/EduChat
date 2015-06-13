@@ -6,7 +6,7 @@ class ProfileController < ApplicationController
   		@interested_tech = current_user.user_technologies.where("technology_type = ?", 'interested')
   		@known_tech = current_user.user_technologies.where("technology_type = ?", 'known')
 
-  		@user = current_user#User.find(params[:id])
-  		@articles = @user.articles.paginate(page: params[:page])
+  		#@user = current_user#User.find(params[:id])
+  		@articles = current_user.articles.paginate(page: params[:page])
   	end
 end

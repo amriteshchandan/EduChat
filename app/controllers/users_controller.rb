@@ -4,4 +4,11 @@ class UsersController < ApplicationController
 	def index
 		@users = User.all
 	end
+
+	def show
+		@user = User.find(params[:name])
+		@articles = @user.articles.paginate(page: params[:page])
+		@interested_tech = @user.user_technologies.where("technology_type = ?", 'interested')
+  		@known_tech = @user.user_technologies.where("technology_type = ?", 'known')
+	end
 end

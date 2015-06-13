@@ -10,6 +10,8 @@ Rails.application.routes.draw do
 
   get 'profile/',to: 'profile#show', as: 'profile'
 
+  get 'users/index'
+  get 'users/:name', to: 'users#show', as: 'user_profile'
 
   root 'home#index'
 

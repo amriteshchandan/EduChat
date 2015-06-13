@@ -1,22 +1,26 @@
+individual users profile will be shown here <br>
+<h2><%= @user.name %></h2>
+
+
 <br>
 
-<h4><%= current_user.name %>'s profile</h4>
+<h4><%= @user.name %>'s profile</h4>
 <hr />
 
 <div class="contaner">
 	<div class="col-md-4">
 		<div>
-			<%= image_tag current_user.avatar.url(:medium) , { size: '200', class: "img-thumbnail" }  if current_user.avatar? %>
-			<h3><%= current_user.name %></h3>
-			<h3><%= current_user.dob %></h3>
+			<%= image_tag @user.avatar.url(:medium) , { size: '200', class: "img-thumbnail" }  if @user.avatar? %>
+			<h3><%= @user.name %></h3>
+			<h3><%= @user.dob %></h3>
 		</div>
 	</div>
 
 	<div class="col-md-8">
 		<div class="jumbotron well">
-			Posts by Current user(me)
-			<% if current_user.articles.any? %>
-				<h3>Articles (<%= current_user.articles.count %>)</h3>
+			
+			<% if @user.articles.any? %>
+				<h3>Articles (<%= @user.articles.count %>)</h3>
 				<ol class="panel">
 					<%= render partial: 'articles/article' %>
 				</ol>
