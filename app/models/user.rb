@@ -10,6 +10,7 @@ class User < ActiveRecord::Base
   has_many :user_technologies
   has_many :technologies, through: :user_technologies
   has_many :articles, dependent: :destroy
+  has_many :comments
 
   acts_as_messageable
  
