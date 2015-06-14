@@ -23,7 +23,6 @@ class User < ActiveRecord::Base
   end
 
   def feed
-    Article.where("user_id = ?", id)
+    Article.where("user_id = ?",id)
   end
-
 end
