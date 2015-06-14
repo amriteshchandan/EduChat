@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
 
   mount Ckeditor::Engine => '/ckeditor'
+
   resources :articles do
     resources :comments
   end
+
   resources :user_technologies
   
   get 'interests/', to: 'user_technologies#new', as: 'interests'
@@ -15,7 +17,7 @@ Rails.application.routes.draw do
 
 # users controller
   get 'user/index'
-  get 'user/:id', to: 'user#show', as: 'user_profile'
+  get 'user/:name', to: 'user#show', as: 'user_profile'
 #
   root 'home#index'
 

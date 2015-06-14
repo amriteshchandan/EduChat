@@ -1,9 +1,13 @@
-<%# if user_signed_in? %>
-	<%# if @feed_items.any? %>
+<% if user_signed_in? %>
+	<% if feed_render %>
 		<ul class="row">
 			<%# render @feed_items %>
+			<% feed_render.each do |feed| %>
+				<%= feed %> <br>
+			<% end -%>
 		</ul>
-		<%# will_paginate @feed_items %>
-	<%# end -%>
+		<%= will_paginate @feed_items %>
+	<% end -%>
+<% else %>
 
-<%# end -%>
+<% end -%>

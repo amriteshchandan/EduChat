@@ -1,4 +1,6 @@
-<%= form_for ([@article, @article.comments.build]) do |f| %>
+
+<%= form_for([@article, @article.comments.build], remote: true ) do |f| %>
+  <%# cktext_area :comment, :info, :cols => 40, :ckeditor => {:uiColor => '#AADC6E', :toolbar => 'mini'} %>
 <%= f.text_field :comment %>
 <%= f.submit %>
 <% end %>
