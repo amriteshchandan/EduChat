@@ -17,7 +17,7 @@ Rails.application.routes.draw do
 
 # users controller
   get 'user/index'
-  get 'user/:name', to: 'user#show', as: 'user_profile'
+  get 'user/:username', to: 'user#show', as: 'user_profile'
 #
   root 'home#index'
 
