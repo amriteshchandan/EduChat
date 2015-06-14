@@ -23,7 +23,10 @@ class User < ActiveRecord::Base
   end
 
   def feed
-    Article.where("user_id = ?", id)
+    tech_ids = "SELECT technology_id FROM user_technologies where user_id = #{self.id}"
+    #Article.where("user_id = ?", id)
+    Article.where("technology_id IN (#{tech_ids}) 
+                      OR user_id = :user_id", user_id: id)
   end
 
 end
