@@ -3,7 +3,7 @@
 		<ul class="row">
 			<%# render @feed_items %>
 			<% feed_render.each do |feed| %>
-				<%= feed %> <br>
+				<%= link_to feed %> <br>
 			<% end -%>
 		</ul>
 		<%= will_paginate @feed_items %>
