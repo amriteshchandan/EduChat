@@ -6,6 +6,7 @@ class HomeController < ApplicationController
   	if user_signed_in?
       @article = current_user.articles.build
       #@feed_items = current_user.feed.paginate(page: params[:page])
+      #byebug
   		
       if @@a > 1
           render 'home/index'
