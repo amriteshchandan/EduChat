@@ -29,4 +29,28 @@ class User < ActiveRecord::Base
                       OR user_id = :user_id", user_id: id)
   end
 
+  def user_may_know_other_user
+    arr1 = []
+    self.user_technologies.each do |t|
+      arr1 << UserTechnology.where("technology_id = ?", t)
+    end
+    arr2 =[]
+    arr1.each do |x|
+      x.each do |y|
+        arr2 << y[:user_id] # returns user id from Usertechnology table
+      end
+    end
+    arr3 = []
+    arr2.each do |id|
+      arr3 << User.where("id = ?", id)
+    end
+    arr4 = []
+    arr3.each do |x|
+      x.each do |y|
+        arr4 << y[:name]
+      end      
+    end
+    return arr4.uniq!
+  end
+
 end

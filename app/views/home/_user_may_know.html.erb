@@ -1,0 +1,12 @@
+<% if user_signed_in? %>
+	<% if user_render %>
+		<ul class="row">
+			<% user_render.each do |user| %>
+				<%= link_to user %> <br>
+			<% end -%>
+		</ul>
+		<%# will_paginate @may_know_user %>
+	<% end -%>
+<% else %>
+
+<% end -%>

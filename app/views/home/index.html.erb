@@ -11,9 +11,10 @@
 
 		<div class="col-md-4">
 			  <div class="jumbotron well">
-			  	<% @users.each do |user| %>
-			  		<%= user.name %><br>
-			  	<% end -%>
+			  	<%# @users.each do |user| %>
+			  		<%# link_to user.name, user_profile_path(user.username) %><br>
+			  	<%# end -%>
+			  	<%= render 'home/user_may_know' %>
 			  </div>
 		</div>	
 	</div>

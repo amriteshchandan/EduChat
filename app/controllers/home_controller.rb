@@ -5,7 +5,7 @@ class HomeController < ApplicationController
   	@articles = Article.all
   	if user_signed_in?
       @article = current_user.articles.build
-      #@feed_items = current_user.feed.paginate(page: params[:page])
+      #@feed_items = current_user.feed.paginate(page: params[:page]) #moved to helper
       #byebug
   		
       if @@a > 1
