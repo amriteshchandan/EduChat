@@ -23,34 +23,36 @@ class User < ActiveRecord::Base
   end
 
   def feed
-    tech_ids = "SELECT technology_id FROM user_technologies where user_id = #{self.id}"
+    @tech_ids = "SELECT technology_id FROM user_technologies where user_id = #{self.id}"
     #Article.where("user_id = ?", id)
-    Article.where("technology_id IN (#{tech_ids}) 
+    Article.where("technology_id IN (#{@tech_ids}) 
                       OR user_id = :user_id", user_id: id)
   end
 
   def user_may_know_other_user
-    arr1 = []
-    self.user_technologies.each do |t|
-      arr1 << UserTechnology.where("technology_id = ?", t)
-    end
-    arr2 =[]
-    arr1.each do |x|
-      x.each do |y|
-        arr2 << y[:user_id] # returns user id from Usertechnology table
-      end
-    end
-    arr3 = []
-    arr2.each do |id|
-      arr3 << User.where("id = ?", id)
-    end
-    arr4 = []
-    arr3.each do |x|
-      x.each do |y|
-        arr4 << y[:name]
-      end      
-    end
-    return arr4.uniq!
+    #arr1 = []
+    #self.user_technologies.each do |t|
+     # arr1 << UserTechnology.where("technology_id = ?", t)
+    #end
+    #arr2 =[]
+    #arr1.each do |x|
+  #    x.each do |y|
+  #      arr2 << y[:user_id] # returns user id from Usertechnology table
+  #    end
+  #  end
+  #  arr3 = []
+  #  arr2.each do |id|
+  #    arr3 << User.where("id = ?", id)
+  #  end
+  #  arr4 = []
+  #  arr3.each do |x|
+  #   x.each do |y|
+  #      arr4 << y[:name]
+  #    end      
+  #  end
+  #  return arr4.uniq!
+    b = "SELECT user_id from user_technologies where technology_id = (#{@tech_ids})"
+    User.where("id IN (#{b})", id)
   end
 
 end
