@@ -3,25 +3,26 @@
 <div class="container">
 	<div class="row">
 		<div class="col-md-8">
-			  <div class="jumbotron well">
+			  <div class="row">
 			  	Recent: 
 			  	<%= render 'home/feed' %>
 			  </div>
 		</div>
-
+		
 		<div class="col-md-4">
-			  <div class="jumbotron well">
+			  <div class="row">
 			  	<%# @users.each do |user| %>
-			  		<%# link_to user.name, user_profile_path(user.username) %><br>
+			  		<%# link_to user.name, user_profile_path(user.username) %>
 			  	<%# end -%>
 			  	<%= render 'home/user_may_know' %>
 			  </div>
 		</div>	
 	</div>
+	<%= link_to "New Article", new_article_path, class: "btn btn-primary" %>
+</div>
+<% else %>
+<div class="front_page_not_signed_in">
+	<h1>Home Page Without Signed IN</h1>	
 </div>
 
-<%= link_to "New Article", new_article_path, class: "btn btn-primary" %>
-<% else %>
-
-<h1>Home Page Without Signed IN</h1>
 <% end %>
