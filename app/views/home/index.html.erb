@@ -2,6 +2,7 @@
 <div class="container">
 	<div class="row">
 		<div class="col-md-8">
+		<%= link_to "New Article", new_article_path, class: "btn btn-primary" %>
 			  <div class="row">
 			  	Recent: 
 			  	<%= render 'home/feed' %>
@@ -9,7 +10,7 @@
 		</div>
 		
 		<div class="col-md-4">
-			<div style="border-left:medium #CC0000 solid; height:300px; position:absolute;"></div>
+			<div style="border-left:medium #CC0000 solid; height:100%; position:absolute;"></div>
 			  <div class="row">
 			  	<%# @users.each do |user| %>
 			  		<%# link_to user.name, user_profile_path(user.username) %>
@@ -18,7 +19,7 @@
 			  </div>
 		</div>	
 	</div>
-	<%= link_to "New Article", new_article_path, class: "btn btn-primary" %>
+	
 </div>
 <% else %>
 <div class="front_page_not_signed_in">
