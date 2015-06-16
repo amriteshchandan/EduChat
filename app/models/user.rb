@@ -55,5 +55,4 @@ class User < ActiveRecord::Base
     b = "SELECT user_id from user_technologies where technology_id = (#{@tech_ids})"
     User.where("id IN (#{b})", id)
   end
-
 end
