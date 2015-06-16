@@ -4,7 +4,7 @@
 		
 		<li><strong><%= article.title %></strong></li> &nbsp;
 		
-		<%= truncate(article.content.html_safe, length: 150) { link_to "Continue", article_path(article) } %>
+		<%= truncate(article.content.html_safe, length: 150) { link_to "Continue", user_article_path(article.title) } %>
 
 		<small class="timestamp">
 	    	| Posted <%= time_ago_in_words(article.created_at) %> ago.
