@@ -28,7 +28,7 @@
 	<div class="col-md-6">
 		<h4>Interested Technologies</h4>
 		<% @interested_tech.each do |interested_tech| %>
-			<%= interested_tech.technology.name %> <br>
+			<%= link_to interested_tech.technology.name, technology_path(interested_tech.technology.id) %> <br>
 		<% end -%>
 
 	</div>
@@ -36,7 +36,7 @@
 	<div class="col-md-6">
 		<h4>Known Technologies</h4>
 		<% @known_tech.each do |known_tech| %>
-			<%= known_tech.technology.name %> <br>
+			<%= link_to known_tech.technology.name, technology_path(known_tech.technology.id) %> <br>
 		<% end -%>
 	</div>
 

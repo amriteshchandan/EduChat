@@ -28,7 +28,7 @@ class ArticlesController < ApplicationController
 		@article = Article.find(params[:id])
 		if @article.update(article_params)
 			flash[:success] = "Article Updated"
-			redirect_to @article
+			redirect_to user_article_path(@article.title)
 		else
 			@feed_items = []
 			redirect_to root_url	
