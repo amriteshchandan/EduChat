@@ -7,6 +7,8 @@ Rails.application.routes.draw do
     resources :comments
   end
 
+  get 'article/:title', to: 'articles#show', as: 'user_article'
+
   resources :user_technologies
   
   get 'interests/', to: 'user_technologies#new', as: 'interests'
