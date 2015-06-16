@@ -1,13 +1,14 @@
+<br>
 <div class="container">
 	<div class="row">
 		<div class="col-md-3">
-			<h3>User Name</h3>
+			<%= image_tag @article.user.avatar.url(:medium) , { size: '200', class: "img-thumbnail" }  if current_user.avatar? %>
 			<h4><%= @article.user.name %></h4>
 
-			<h3>Title <small><%= @article.title %></small> </h3>
+			<h3><small><%= @article.title %></small> </h3>
 			<h4></h4>
-			<h3>Technoly Name</h3>
-			<h4><%= @article.technology.name %></h4>
+			<h5><b>Technology:</b> <small><%= @article.technology.name %></small></h5>
+			<h4></h4>
 		</div>
 
 		<div class="col-md-9">
@@ -22,7 +23,7 @@
 		</div>
 
 		<div class="col-md-9">
-			<h4><%= @article.comments.count %>&nbsp;Comments</h4>
+			<h4><%# @article.comments.count %>&nbsp;Comments</h4>
 			<hr>
 			<div class="comments">
 				<%= render @article.comments %>

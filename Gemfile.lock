@@ -61,6 +61,7 @@ GEM
     builder (3.2.2)
     byebug (5.0.0)
       columnize (= 0.9.0)
+    cancancan (1.10.1)
     carrierwave (0.10.0)
       activemodel (>= 3.2.0)
       activesupport (>= 3.2.0)
@@ -117,6 +118,8 @@ GEM
       activerecord (>= 3.0.0)
     globalid (0.3.5)
       activesupport (>= 4.1.0)
+    haml (4.0.6)
+      tilt
     hike (1.2.3)
     i18n (0.7.0)
     jbuilder (2.2.16)
@@ -129,6 +132,9 @@ GEM
     jquery-ui-rails (5.0.5)
       railties (>= 3.2.16)
     json (1.8.3)
+    kaminari (0.16.3)
+      actionpack (>= 3.0.0)
+      activesupport (>= 3.0.0)
     loofah (2.0.2)
       nokogiri (>= 1.5.9)
     mail (2.6.3)
@@ -140,7 +146,8 @@ GEM
     mime-types (2.6.1)
     mini_portile (0.6.2)
     minitest (5.7.0)
-    multi_json (1.11.1)
+    multi_json (1.11.0)
+    nested_form (0.3.2)
     nokogiri (1.6.6.2)
       mini_portile (~> 0.6.0)
     orm_adapter (0.5.0)
@@ -151,6 +158,9 @@ GEM
       mime-types
     pg (0.18.2)
     rack (1.6.1)
+    rack-pjax (0.8.0)
+      nokogiri (~> 1.5)
+      rack (~> 1.1)
     rack-test (0.6.3)
       rack (>= 1.0)
     rails (4.2.1)
@@ -180,6 +190,20 @@ GEM
     rails_12factor (0.0.3)
       rails_serve_static_assets
       rails_stdout_logging
+    rails_admin (0.6.8)
+      builder (~> 3.1)
+      coffee-rails (~> 4.0)
+      font-awesome-rails (>= 3.0, < 5)
+      haml (~> 4.0)
+      jquery-rails (>= 3.0, < 5)
+      jquery-ui-rails (~> 5.0)
+      kaminari (~> 0.14)
+      nested_form (~> 0.3)
+      rack-pjax (~> 0.7)
+      rails (~> 4.0)
+      remotipart (~> 1.0)
+      safe_yaml (~> 1.0)
+      sass-rails (>= 4.0, < 6)
     rails_serve_static_assets (0.0.4)
     rails_stdout_logging (0.0.3)
     railties (4.2.1)
@@ -192,9 +216,11 @@ GEM
     rb-inotify (0.9.5)
       ffi (>= 0.5.0)
     rdoc (4.2.0)
+    remotipart (1.2.1)
     responders (2.1.0)
       railties (>= 4.2.0, < 5)
     ruby-graphviz (1.2.2)
+    safe_yaml (1.0.4)
     sass (3.4.14)
     sass-rails (5.0.3)
       railties (>= 4.0.0, < 5.0)
@@ -242,6 +268,7 @@ DEPENDENCIES
   acts_as_tree (~> 2.1.0)
   bootstrap-sass
   byebug
+  cancancan
   chosen-rails
   ckeditor
   coffee-rails (~> 4.1.0)
@@ -257,6 +284,7 @@ DEPENDENCIES
   rails (= 4.2.1)
   rails-erd
   rails_12factor
+  rails_admin
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
   spring

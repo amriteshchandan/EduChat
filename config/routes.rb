@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   mount Ckeditor::Engine => '/ckeditor'
 
   resources :articles do
@@ -17,7 +18,7 @@ Rails.application.routes.draw do
 
 # users controller
   get 'user/index'
-  get 'user/:name', to: 'user#show', as: 'user_profile'
+  get 'user/:username', to: 'user#show', as: 'user_profile'
 #
   root 'home#index'
 

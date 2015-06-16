@@ -6,7 +6,7 @@ class UserController < ApplicationController
 	end
 
 	def show
-		@user = User.find_by(:name => params[:name] )	 #where(name:  (params[:name])).first
+		@user = User.find_by(:username => params[:username] )	 #where(name:  (params[:name])).first
 					#find_by(:name)	
 		@articles = @user.articles.paginate(page: params[:page])
 		@interested_tech = @user.user_technologies.where("technology_type = ?", 'interested')

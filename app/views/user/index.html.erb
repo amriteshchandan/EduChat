@@ -3,6 +3,6 @@ List of all the users are kept here <br>
 
 <div>
 	<% @users.each do |user| %>
-		<%= link_to "#{user.name}", user_profile_path(user.name) if user.name.present? %> <br>
+		<%= link_to "#{user.name}", user_profile_path(user.username) if user.name.present? %> <br>
 	<% end -%>	
 </div>
