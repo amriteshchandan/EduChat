@@ -19,6 +19,7 @@ class TechnologiesController < ApplicationController
 
   # GET /technologies/1/edit
   def edit
+    authorize! :update, @technology
   end
 
   # POST /technologies

@@ -22,6 +22,7 @@ class UserTechnologiesController < ApplicationController
 
   # GET /user_technologies/1/edit
   def edit
+    authorize! :update, @user_technology
   end
 
   # POST /user_technologies

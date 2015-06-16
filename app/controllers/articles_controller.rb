@@ -20,6 +20,7 @@ class ArticlesController < ApplicationController
 	def show
 		#@article = Article.find(params[:id])
 		@article = Article.find_by(:title => params[:title])
+		#authorize! :update, @article
 	end
 
 
@@ -37,6 +38,7 @@ class ArticlesController < ApplicationController
 	def edit
 		@article = Article.find(params[:id])
 		@tech_collection = UserTechnology.where("user_id = ? AND technology_type = ?", current_user.id, "known")
+		authorize! :update, @article
 	end
 
 
