@@ -4,10 +4,21 @@
   <title>EduChat</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css">
   <%= csrf_meta_tags %>
   
 </head>
 <body>
+<% if notice %>
+	<div id="notice_wrapper">
+		<p class="notice"><%= notice %></p>
+	</div>
+<% elsif alert %>
+	<div id="notice_wrapper">
+		<p class="alert"><%= alert %></p>
+	</div>
+<% end %>
+
 	<nav class="navbar navbar-top">
 		<div class="container-fluid">
 			<div class="navbar-header">
@@ -31,5 +42,6 @@
 <div>
 	<%= yield %>
 </div>
+
 </body>
 </html>
