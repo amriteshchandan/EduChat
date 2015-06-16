@@ -2,7 +2,8 @@
 	<% if user_render %>
 		<ul class="row">
 			<% user_render.each do |user| %>
-				<%= image_tag "coder.jpg" , { size: '50', class: "img-thumbnail" }  if current_user.avatar? %>  <%= link_to user, user_profile_path(user) %> <br>
+				<%= image_tag "coder.jpg" , { size: '50', class: "img-thumbnail" }  %>
+				<%= link_to user, user_profile_path(user) %> <br><br>
 			<% end -%>
 		</ul>
 		<%= will_paginate @may_know_user %>

@@ -3,10 +3,8 @@ class CommentsController < ApplicationController
 		@article = Article.find(params[:article_id])
 		@comment = @article.comments.create(params[:comment].permit(:comment))
 		@comment.user_id = current_user.id if current_user
-		@comment.save
-
 		if @comment.save
-			redirect_to article_path(@article)
+			redirect_to user_article_path(@article)
 		else
 			render 'new'
 		end
