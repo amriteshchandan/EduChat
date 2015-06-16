@@ -10,7 +10,7 @@
 	    	| Posted <%= time_ago_in_words(article.created_at) %> ago.
 	    	<%# link_to "show full article", article_path(article) %>  
 	    	<% if can? :destroy, article %>
-	    		| <%= link_to "delete", article, method: :delete, data: { confirm: "Sure ?" } %>
+	    		| <%= link_to "delete", destroy_article_path(article), method: :delete, data: { confirm: "Sure ?" } %>
 	    	<% end -%>
 	  	</small>
 	  	<br>
