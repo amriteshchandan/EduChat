@@ -2,18 +2,15 @@ class ArticlesController < ApplicationController
 	before_action :authenticate_user!
 	before_action :correct_user, only: :destroy
 
-
-
 	def new
 		@article = current_user.articles.build
-		
 	end
 
 	def create
 		@article = current_user.articles.build(article_params)
 		if @article.save
 			flash[:success] = "Article created"
-			redirect_to @article
+			redirect_to user_article_path(@article.title)
 		else
 			render :new	
 		end
@@ -45,6 +42,7 @@ class ArticlesController < ApplicationController
 
 
 	def destroy
+		#@article = Article.find_by(:title => params[:title])
 		@article.destroy
 		flash[:success] = "Article deleted"
 		redirect_to request.referrer || root_url
