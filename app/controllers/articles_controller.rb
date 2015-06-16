@@ -20,12 +20,13 @@ class ArticlesController < ApplicationController
 	def show
 		#@article = Article.find(params[:id])
 		@article = Article.find_by(:title => params[:title])
+		@article = Article.find_by(:id => params[:title].to_i) if @article.blank?
 		#authorize! :update, @article
 	end
 
 
 	def update
-		@article = Article.find(params[:id])
+		@article = Article.find(params[:title].to_i)
 		if @article.update(article_params)
 			flash[:success] = "Article Updated"
 			redirect_to user_article_path(@article.title)
