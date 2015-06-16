@@ -11,24 +11,27 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
+  <div class="col-md-2">
+    <div class="field">
+      <%= f.label :title %><br>
+      <%= f.text_field :title %>
+    </div>
+
+
+    <div class="field">
+      <%= f.label :technology_id %><br>
+      <%= f.select :technology_id, tech_collection.all.collect { |p|  [p.technology.name, p.technology_id]} %>
+    </div>
   </div>
 
+  <div class="col-md-10">
+    <div class="field">
+      <%= f.label :content %><br>
+      <%= f.cktext_area :content, size: '100' %>
+    </div>
 
-  <div class="field">
-    <%= f.label :technology_id %><br>
-    <%= f.select :technology_id, tech_collection.all.collect { |p|  [p.technology.name, p.technology_id]} %>
-  </div>
-
-
-  <div class="field">
-    <%= f.label :content %><br>
-    <%= f.cktext_area :content, size: '100' %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit %>
+    <div class="actions">
+      <%= f.submit %>
+    </div>
   </div>
 <% end %>
