@@ -4,6 +4,26 @@
   <strong>Name:</strong>
   <%= @technology.name %>
 </p>
-
-<%= link_to 'Edit', edit_technology_path(@technology) %> |
+<% if can? :update, @technology %>
+	<%= link_to 'Edit', edit_technology_path(@technology) %> 
+<% end -%>
+|
 <%= link_to 'Back', technologies_path %>
+<hr>
+	
+
+<div class="col-md-9">
+	<strong>list of all articles</strong><br>
+	<% if related_article_render %>
+		<% related_article_render.each do |article| %>
+			<%= link_to article, user_article_path(article) %>  <br>
+		<% end -%>
+	<% end -%>
+</div>
+
+<div class="col-md-3">
+	<strong>List of Users related </strong><br>
+	<% @technology.users.each do |user_name| %>
+		<%= user_name.name %><br>
+	<% end -%>
+</div>

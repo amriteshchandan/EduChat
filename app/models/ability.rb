@@ -4,6 +4,8 @@ class Ability
   def initialize(user)
     if user.has_role? :admin
         can :manage, :all
+        can :create, Technology
+        can :update, Technology
     else
         can :update, Article do |article|
             article.user == user

@@ -10,6 +10,8 @@ class TechnologiesController < ApplicationController
   # GET /technologies/1
   # GET /technologies/1.json
   def show
+    @users = User.all
+    @articles = Article.all
   end
 
   # GET /technologies/new
@@ -65,7 +67,8 @@ class TechnologiesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_technology
-      @technology = Technology.find(params[:id])
+     # @technology = Technology.find(params[:id])
+      @technology = Technology.find_by(:name => params[:name])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
