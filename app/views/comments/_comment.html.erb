@@ -1,7 +1,7 @@
 
 <h4><%= simple_format comment.comment%></h4>
 <small>
-	by : <%= comment.user.name %> 
+	by : <%= link_to comment.user.name, user_profile_path(comment.user.username) %> 
 	<% if can? :update, comment %>
 		| <%= link_to "Edit", edit_article_comment_path(comment.article, comment) %> 
 	<% end -%>

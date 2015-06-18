@@ -1,20 +1,28 @@
+<% provide(:title, "Profile") %>
 <div style="margin-left: 40px; margin-right: 40px;">
 	<h4><%= current_user.name %>'s profile</h4>
 	<hr />
 	<div>
 		<div class="col-md-4">
 			<div>
-				<%= image_tag current_user.avatar.url(:medium) , { size: '200', class: "img-thumbnail" }  if current_user.avatar? %>
+				<% if current_user.avatar.present? %>
+					<%= image_tag current_user.avatar.url(:medium) , { size: '200', class: "img-thumbnail" } %>
+				<% else %>
+					<%= image_tag "i-am-a-programmer-i-write-code.png" , { size: '200', class: "img-thumbnail" } %>
+				<% end -%>
 				<h3><%= current_user.name %></h3>
-				<h3><%= current_user.dob %></h3>
+				<h5><%= current_user.dob %></h5>
+				<h5><%= current_user.email %></h5>
+				<h5><%= current_user.college %></h5>
 			</div>
+			<%= link_to "update profile", edit_user_registration_path %>
 		</div>
 
 		<div class="col-md-8">
 			<div class="jumbotron well">
-				Posts by Current user(me)
+				Posts by me :
 				<% if current_user.articles.any? %>
-					<h3>Articles (<%= current_user.articles.count %>)</h3>
+					<h5>Articles (<%= current_user.articles.count %>)</h5>
 					<ol class="panel">
 						<%= render partial: 'articles/article' %>
 					</ol>
@@ -25,7 +33,9 @@
 	</div>
 	<div class="clearfix"></div>
 	<hr>
+
 	<div class="col-md-6">
+	<b>Update your interests <%= link_to "edit", interests_path %> </b>
 		<h4>Interested Technologies</h4>
 		<% @interested_tech.each do |interested_tech| %>
 			<%= link_to interested_tech.technology.name, technology_name_path(interested_tech.technology.name) %> <br>

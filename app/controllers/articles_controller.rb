@@ -26,7 +26,7 @@ class ArticlesController < ApplicationController
 
 
 	def update
-		@article = Article.find(params[:title].to_i)
+		@article = Article.find(params[:id])
 		if @article.update(article_params)
 			flash[:success] = "Article Updated"
 			redirect_to user_article_path(@article.title)
@@ -37,7 +37,8 @@ class ArticlesController < ApplicationController
 	end
 
 	def edit
-		@article = Article.find(params[:id])
+		#@article = Article.find(params[:id])
+		@article = Article.find_by(:title => params[:heading])
 		@tech_collection = UserTechnology.where("user_id = ? AND technology_type = ?", current_user.id, "known")
 		authorize! :update, @article
 	end

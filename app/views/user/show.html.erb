@@ -4,9 +4,14 @@
 <div class="contaner">
 	<div class="col-md-4">
 		<div>
-			<%= image_tag @user.avatar.url(:medium) , { size: '200', class: "img-thumbnail" }  if @user.avatar? %>
+			<% if @user.avatar.present? %>
+					<%= image_tag @user.avatar.url(:medium) , { size: '200', class: "img-thumbnail" } %>
+				<% else %>
+					<%= image_tag "i-am-a-programmer-i-write-code.png" , { size: '200', class: "img-thumbnail" } %>
+				<% end -%>
 			<h3><%= @user.name %></h3>
-			<h3><%= @user.dob %></h3>
+			<h5>Email: <%= @user.email %></h5>
+			<%= link_to "Message me", new_conversation_path(to: @user.name) %>
 		</div>
 	</div>
 
@@ -28,7 +33,7 @@
 <div class="col-md-6">
 	<h4>Interested Technologies</h4>
 	<% @interested_tech.each do |interested_tech| %>
-		<%= interested_tech.technology.name %> <br>
+		<%= link_to interested_tech.technology.name, technology_name_path(interested_tech.technology.name) %> <br>
 	<% end -%>
 
 </div>
@@ -36,7 +41,7 @@
 <div class="col-md-6">
 	<h4>Known Technologies</h4>
 	<% @known_tech.each do |known_tech| %>
-		<%= known_tech.technology.name %> <br>
+		<%= link_to known_tech.technology.name, technology_name_path(known_tech.technology.name) %> <br>
 	<% end -%>
 </div>
 

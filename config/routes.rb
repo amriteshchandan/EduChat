@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   end
 
   get 'article/:title', to: 'articles#show', as: 'user_article'
+  get 'articles/:title/edit', to: 'articles#edit', as: 'edit_user_article'
+  patch 'articles/:title', to: 'articles#update', as: 'update_article'
   delete 'articles/:title', to: 'articles#destroy', as: 'destroy_article'
 
   resources :user_technologies
