@@ -2,11 +2,9 @@
 	<span><%# link_to @article.user.name, @article.user %></span>
 	<% @articles.each do |article| %>
 		<div>
-			<li>
-				<strong>
-					<%= link_to article.title, user_article_path(article.title) %>
-				</strong>
-			</li> &nbsp;
+			<p>
+				<%= link_to article.title, user_article_path(article.title) %>
+			</p> &nbsp;
 
 			<small class="timestamp">
 		    	Posted <%= time_ago_in_words(article.created_at) %> ago
