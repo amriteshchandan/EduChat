@@ -20,9 +20,14 @@
 	<div class="navbar" style="margin-top: -0.3%;">
 		<div class="container-fluid" style="margin-top: -0.2%;">
 			<div class="navbar-header">
-				<%= link_to "EduChat", root_path, class: "navbar-brand" %>
+				 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+			        <span class="icon-bar"></span>
+			        <span class="fa fa-sort-desc"></span>
+			        <span class="icon-bar"></span>
+			    </button>
+			    <%= link_to "EduChat", root_path, class: "navbar-brand" %>
 			</div>
-			<div style="margin-top: -0.3%";>
+			<div style="margin-top: -0.3%"; class="collapse navbar-collapse" id="myNavbar">
 				<ul class="nav navbar-nav navbar-right">
 					<% if user_signed_in? %>
 						<li><%= link_to "Inbox", mailbox_inbox_path, class: "fa fa-inbox" %></li>
@@ -36,9 +41,14 @@
 			</div>
 		</div>	
 	</div>
-<div>
+<div style="margin-top: -2%;">
 	<%= yield %>
 </div>
+
+<hr>
+<footer>
+	
+</footer>
 
 </body>
 </html>

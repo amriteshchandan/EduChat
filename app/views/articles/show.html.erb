@@ -10,9 +10,9 @@
 			<% end -%>
 			<h4><%= link_to @article.user.name, user_profile_path(@article.user.username) %></h4>
 
-			<h3><small><%= @article.title %></small> </h3>
+			<h4><%= @article.title %></h4>
 			<h4></h4>
-			<h5><b>Technology:</b> <small><%= link_to @article.technology.name, technology_name_path(@article.technology.name) %></small></h5>
+			<h5><b>Technology:</b> &nbsp;<%= link_to @article.technology.name, technology_name_path(@article.technology.name) %></h5>
 			<h4></h4>
 		</div>
 

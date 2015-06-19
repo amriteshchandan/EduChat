@@ -1,16 +1,18 @@
 <% provide(:title, "Home") %>
 <% if user_signed_in? %> 
 <div style="margin-left: 2.5%; margin-right:2.5%">
-<%= link_to "New Article", new_article_path, class: "btn btn-primary" %><br><br>
+<br><br>
 	<div class="row">
-		<div class="col-md-8">
-			  <div class="panel panel-default">
-			  	Recent: 
+		<div class="col-md-2">
+			<a href="<%= new_article_path %>"><i class="fa fa-plus-square fa-4x" data-toggle="tooltip" title="create new article" data-placement="right"></i></a>
+		</div>
+		<div class="col-md-7">
+			  <div class="panel panel-default"> 
 			  	<%= render 'home/feed' %>
 			  </div>
 		</div>
 		
-		<div class="col-md-4">
+		<div class="col-md-3">
 			<!--<div style="border-left:medium #CC0000 solid; height:100%; position:absolute;"></div> -->
 			  <div class="panel panel-default">
 			  	<%= render 'home/user_may_know' %>
