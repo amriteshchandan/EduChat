@@ -21,6 +21,10 @@
 @import "font-awesome";
 @import 'normalize';
 
+body {
+ /* background-image: url('background.jpg'); */
+}
+
 #notice_wrapper {
 	position: absolute;
   	top: 0;
@@ -47,4 +51,36 @@
     	color: #ffffff;
    		letter-spacing: 1px;
   	}
+}
+
+.edit_registration{
+    margin-left: 20%;
+    margin-right: 20%;
+}
+
+/* unvisited link */
+a:link {
+    color: #19070B;
+    text-decoration: none;
+}
+
+/* visited link */
+a:visited {
+    color: #19070B;
+}
+
+/* mouse over link */
+a:hover {
+    color: #01DFD7;
+}
+
+/* selected link */
+a:active {
+    color: #0000FF;
+}
+
+.navbar {
+  background-image: url("background.jpg");
+  padding-bottom: 0px;
+  color: #fff;
 }

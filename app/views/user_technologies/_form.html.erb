@@ -11,5 +11,5 @@
                                                          {multiple: true, class: "chosen-select form-control"}
                                                          )%><br> <br>  
   <%= hidden_field_tag :user_id, current_user.id %>                                                       
-  <%= f.submit %>
+  <%= f.submit "update", class: "btn btn-default" %>
 <% end %>

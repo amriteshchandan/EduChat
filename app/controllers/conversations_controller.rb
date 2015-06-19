@@ -2,7 +2,7 @@ class ConversationsController < ApplicationController
 	before_action :authenticate_user!
 
 	def new
-		
+		@chosen_recipient = User.find_by(name: params[:to])	if params[:to]
 	end
 
 	def create

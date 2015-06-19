@@ -1,9 +1,47 @@
-<p id="notice"><%= notice %></p>
+<% provide(:title,(@technology.name)) %>
 
-<p>
-  <strong>Name:</strong>
-  <%= @technology.name %>
-</p>
+<div style="margin-left: 2.5%;margin-right: 2.5%">
+	<p id="notice"><%= notice %></p>
 
-<%= link_to 'Edit', edit_technology_path(@technology) %> |
-<%= link_to 'Back', technologies_path %>
+	<p>
+	  <strong>Name:</strong>
+	  <%= @technology.name %>
+	</p>
+	<% if can? :update, @technology %>
+		<%= link_to 'Edit', edit_technology_path(@technology) %> 
+	<% end -%>
+	<hr>
+		
+
+	<div class="col-md-9">
+
+		<strong>list of all articles</strong>
+		<div class="panel panel-default" style="padding-left:10%;">
+			<% if related_article_render %>
+				<% related_article_render.each do |article| %>
+					<div class="panel panel-body">
+						<li><%= link_to article, user_article_path(article) %></li>
+					</div>
+				<% end -%>
+			<% end -%>
+		</div>
+	</div>
+
+	<div class="col-md-3">
+		<strong>List of Users related </strong>
+		<div class="panel panel-default">
+			<% @technology.users.each do |user_name| %>
+				<% if user_name != current_user %>
+					<div class="panel panel-body">
+						<% if user_name.avatar? %>
+							<%= image_tag user_name.avatar.url(:thumb), { size: '50', class: 'img-rounded' } %>
+						<% else %>
+							<%= image_tag 'i-am-a-programmer-i-write-code.png', { size: '50', class: 'img-rounded' } %>
+						<% end -%>
+						&nbsp;<%= link_to user_name.name, user_profile_path(user_name.username) %>
+					</div>
+				<% end -%>
+			<% end -%>
+		</div>
+	</div>
+</div>

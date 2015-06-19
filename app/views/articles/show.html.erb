@@ -1,13 +1,18 @@
+<% provide(:title, @article.title) %>
 <br>
 <div class="container">
 	<div class="row">
 		<div class="col-md-3">
-			<%= image_tag @article.user.avatar.url(:medium) , { size: '200', class: "img-thumbnail" }  if current_user.avatar? %>
-			<h4><%= @article.user.name %></h4>
+			<% if @article.user.avatar? %>
+				<%= image_tag @article.user.avatar.url(:medium) , { size: '200', class: "img-thumbnail" } %>
+			<% else %>
+				<%= image_tag "i-am-a-programmer-i-write-code.png" , { size: '200', class: "img-thumbnail" } %>
+			<% end -%>
+			<h4><%= link_to @article.user.name, user_profile_path(@article.user.username) %></h4>
 
 			<h3><small><%= @article.title %></small> </h3>
 			<h4></h4>
-			<h5><b>Technology:</b> <small><%= @article.technology.name %></small></h5>
+			<h5><b>Technology:</b> <small><%= link_to @article.technology.name, technology_name_path(@article.technology.name) %></small></h5>
 			<h4></h4>
 		</div>
 
@@ -16,7 +21,7 @@
 			<h4><%= simple_format (@article.content.html_safe) %></h4>
 
 			<% if can? :update, @article %>
-				<%= link_to "Edit", edit_article_path(@article), class: "btn" %>
+				<%= link_to "Edit", edit_user_article_path(:heading => @article.title), class: "btn" %>
 			<% end -%>
 			
 		</div>
