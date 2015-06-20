@@ -12,9 +12,7 @@
 					<%= image_tag "i-am-a-programmer-i-write-code.png" , { size: '200', class: "img-thumbnail" } %>
 				<% end -%>
 				<h3><%= current_user.name %></h3>
-				<h5><%= current_user.dob %></h5>
 				<h5><%= current_user.email %></h5>
-				<h5><%= current_user.college %></h5>
 			</div>
 			<i class="fa fa-cog"></i> <%= link_to "update profile", edit_user_registration_path %>
 		</div>

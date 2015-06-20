@@ -1,5 +1,5 @@
+=begin
 class HomeController < ApplicationController
-  @@a = 1
   def index
     @users = User.all
   	@articles = Article.all
@@ -17,6 +17,24 @@ class HomeController < ApplicationController
     else
       render 'home/index'
   	end
+  
+  end
+end
+=end
+
+class HomeController < ApplicationController
+  def index
+    @users = User.all
+    @articles = Article.all
+    if user_signed_in?
+      @article = current_user.articles.build
+      #@feed_items = current_user.feed.paginate(page: params[:page]) #moved to helper
+      #byebug
+      
+        render 'home/index'
+    else
+      render 'home/index'
+    end
   
   end
 end

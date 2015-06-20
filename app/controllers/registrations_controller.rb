@@ -9,7 +9,11 @@ class RegistrationsController < Devise::RegistrationsController
 			params.require(:user).permit(:name, :email, :password, :password_confirmation, :current_password, :dob, :gender, :college, :avatar, :username)
 		end
 
-		def after_update_path_for(resource)
-      		interests_path
-    	end
+		#def after_update_path_for(resource)
+      	#	interests_path
+    	#end
+
+    	def after_sign_up_path_for(resource)
+  			interests_path
+		end
 end
