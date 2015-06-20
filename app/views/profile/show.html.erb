@@ -1,7 +1,8 @@
 <% provide(:title, "Profile") %>
-<div style="margin-left: 40px; margin-right: 40px;">
-	<h4><%= current_user.name %>'s profile</h4>
-	<hr />
+<div style="margin-left: 40px; margin-right: 40px; margin-top: 40px;">
+	
+		<h4><%= current_user.name %>'s profile</h4>
+		<hr />
 	<div>
 		<div class="col-md-4">
 			<div>
@@ -15,7 +16,7 @@
 				<h5><%= current_user.email %></h5>
 				<h5><%= current_user.college %></h5>
 			</div>
-			<%= link_to "update profile", edit_user_registration_path %>
+			<i class="fa fa-cog"></i> <%= link_to "update profile", edit_user_registration_path %>
 		</div>
 
 		<div class="col-md-8">
@@ -23,9 +24,9 @@
 				Posts by me :
 				<% if current_user.articles.any? %>
 					<h5>Articles (<%= current_user.articles.count %>)</h5>
-					<ol class="panel">
+					<div class="panel panel-default" style="padding-left: 2%;">
 						<%= render partial: 'articles/article' %>
-					</ol>
+					</div>
 					<%= will_paginate @articles %>
 				<% end -%>
 			</div>

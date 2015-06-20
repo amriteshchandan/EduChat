@@ -1,8 +1,8 @@
 <% if user_signed_in? %>
 	<% if feed_render %>		
-		<div class="panel-body" style="padding-left: 10%;">
+		<div>
 			<% feed_render.each do |feed| %>
-				<h4><%= link_to feed, user_article_path(feed) %></h4><hr>
+				<h4 style="padding-left: 10%;"><%= link_to feed, user_article_path(feed) %></h4><hr>
 			<% end -%>
 		</div>
 		<%# will_paginate @feed_items %>

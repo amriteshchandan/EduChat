@@ -1,22 +1,20 @@
 <ul>
 	<span><%# link_to @article.user.name, @article.user %></span>
 	<% @articles.each do |article| %>
-		
-		<li><strong><%= link_to article.title, user_article_path(article.title) %></strong></li> &nbsp;
-		
-		<%# truncate (article.content.html_safe) { link_to 'continue', '#'} %>	
-		
-		
+		<div>
+			<p>
+				<%= link_to article.title, user_article_path(article.title) %>
+			</p> &nbsp;
 
-		<small class="timestamp">
-	    	 Posted <%= time_ago_in_words(article.created_at) %> ago.
-	    	<%# link_to "show full article", article_path(article) %>  
-	    	<% if can? :destroy, article %>
-	    		| <%= link_to "delete", destroy_article_path(article), method: :delete, data: { confirm: "Sure ?" } %>
-	    	<% end -%>
-	  	</small>
-	  	<br>
-	  	<hr />
-	  	<br>
+			<small class="timestamp">
+		    	Posted <%= time_ago_in_words(article.created_at) %> ago
+		    	<%# link_to "show full article", article_path(article) %>  
+		    	<% if can? :destroy, article %>
+		    		| <%= link_to "delete", destroy_article_path(article), method: :delete, data: { confirm: "Sure ?" } %>
+		    	<% end -%>
+	  		</small>
+		</div>
+		<%# truncate (article.content.html_safe) { link_to 'continue', '#'} %>	
+		<br>
 	<% end -%>
 </ul>

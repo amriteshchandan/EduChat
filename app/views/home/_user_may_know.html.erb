@@ -1,15 +1,15 @@
 <% if user_signed_in? %>
 	<% if user_render %>
 		<ul class="row">
-			<div class="panel-body">
+			<div style="margin-top: 1em;">
 				<% user_render.each do |user| %>
-					<% if user.name != current_user.name %>
+					<% if (user.name != current_user.name)%><p style="font-size: 1.5em;">
 						<% if user.avatar? %>
-							<%= image_tag user.avatar.url(:thumb), { size: '50', class: 'img-rounded' } %>
+							<%= image_tag user.avatar.url(:thumb), { size: '40', class: 'img-rounded' } %>
 						<% else %>
-							<%= image_tag "i-am-a-programmer-i-write-code.png" , { size: '50', class: 'img-rounded' } %>
+							<%= image_tag "i-am-a-programmer-i-write-code.png" , { size: '40', class: 'img-rounded' } %>
 						<% end -%>
-						<%= link_to user.name, user_profile_path(user.username) %><hr>
+						&nbsp;<%= link_to user.name, user_profile_path(user.username) %></p><br>
 					<% end -%>
 				<% end -%>
 			</div>

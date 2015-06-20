@@ -19,6 +19,8 @@ Rails.application.routes.draw do
   post 'user_technologies/create'
 
   get 'technologies/:name', to: 'technologies#show',as: 'technology_name'
+  get 'technologies/:name/edit', to: 'technologies#edit', as: 'technology_edit'
+  patch 'technologies/:name', to: 'technologies#update', as: 'update_technologies'
 
   resources :technologies
 

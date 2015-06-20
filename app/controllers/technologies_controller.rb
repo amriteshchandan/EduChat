@@ -22,6 +22,11 @@ class TechnologiesController < ApplicationController
   # GET /technologies/1/edit
   def edit
     authorize! :update, @technology
+    puts "+++++++++++++++++++++++++++++++"
+      p @technology
+      puts ""
+      p params
+    puts "+++++++++++++++++++++++++++++++"
   end
 
   # POST /technologies
