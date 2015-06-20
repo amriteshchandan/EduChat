@@ -3,7 +3,7 @@
 		<ul class="row">
 			<div style="margin-top: 1em;">
 				<% user_render.each do |user| %>
-					<% if user.name != current_user.name %><p style="font-size: 1.5em;">
+					<% if (user.name != current_user.name)%><p style="font-size: 1.5em;">
 						<% if user.avatar? %>
 							<%= image_tag user.avatar.url(:thumb), { size: '40', class: 'img-rounded' } %>
 						<% else %>

@@ -9,7 +9,7 @@
 				<%= image_tag "i-am-a-programmer-i-write-code.png" , { size: '200', class: "img-thumbnail" } %>
 			<% end -%>
 			<h4><%= link_to @article.user.name, user_profile_path(@article.user.username) %></h4>
-
+			<hr>
 			<h4><%= @article.title %></h4>
 			<h4></h4>
 			<h5><b>Technology:</b> &nbsp;<%= link_to @article.technology.name, technology_name_path(@article.technology.name) %></h5>
