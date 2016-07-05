@@ -1,0 +1,108 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *
+ *= require chosen
+ *= require jquery-ui/datepicker
+ *= require_tree .
+ *= require_self
+ */
+@import "bootstrap";
+
+@import "font-awesome";
+@import 'normalize';
+
+body {
+ /* background-image: url('background.jpg'); */
+}
+p {
+  font-family: neuton, serif;
+}
+h1 h2 h3 h4 h5 h6 {
+  font-family: kotta-one, serif;
+}
+
+#notice_wrapper {
+	position: absolute;
+  	top: 0;
+  	width: 100%;
+  	z-index: 999;
+  	background: rgba(135, 216, 211, 0.85);
+
+  	.alert {
+  		padding: 2.5rem 0;
+  		text-align: center;
+    	margin: 0;
+    	font-size: 1.25rem;
+    	font-weight: 700;
+    	color: #E00B0B;
+   		letter-spacing: 1px;
+  	}
+
+  	.notice {
+  		padding: 2.5rem 0;
+  		text-align: center;
+    	margin: 0;
+    	font-size: 1.25rem;
+    	font-weight: 700;
+    	color: #ffffff;
+   		letter-spacing: 1px;
+  	}
+}
+
+.edit_registration{
+    margin-left: 20%;
+    margin-right: 20%;
+}
+
+/* unvisited link */
+a:link {
+    color: #19070B;
+    text-decoration: none;
+}
+
+/* visited link */
+a:visited {
+    color: #19070B;
+}
+
+/* mouse over link */
+a:hover {
+    color: #01DFD7;
+}
+
+/* selected link */
+a:active {
+    color: #0000FF;
+}
+
+.navbar {
+  background-image: url("background.jpg");
+  padding-bottom: 0px;
+  color: #fff;
+}
+
+.login_form {
+    margin: 10% 30% ;
+    background-image: url("background.jpg");
+    border-radius: 30px;
+    height: 110%;
+    padding: 1em 2em;
+}
+
+.sign_up_form {
+  margin: 7% 30% ;
+  background-image: url("background.jpg");
+  border-radius: 30px;
+  height: 110%;
+  padding: 1em 2em;
+}
