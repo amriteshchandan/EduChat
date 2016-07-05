@@ -1,5 +1,6 @@
 <% provide(:title, "Home") %>
 <% if user_signed_in? %> 
+<%= render partial: 'layouts/nav' %>
 <div style="margin-left: 2.5%; margin-right:2.5%">
 <br><br>
 	<div class="row">
@@ -26,7 +27,10 @@
 </div>
 <% else %>
 <div class="front_page_not_signed_in">
-	<h1>Home Page Without Signed IN</h1>	
+	<h1>Home Page Without Signed IN</h1>
+	<div>
+		<%= link_to "Sign in", new_user_session_path %>
+	</div>
 </div>
 
 <% end %>
