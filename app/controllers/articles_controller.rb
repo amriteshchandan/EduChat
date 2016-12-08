@@ -1,5 +1,5 @@
 class ArticlesController < ApplicationController
-	before_action :authenticate_user!
+	before_action :authenticate_user!, except: :show
 	before_action :correct_user, only: :destroy
 
 	def new
@@ -12,7 +12,7 @@ class ArticlesController < ApplicationController
 			flash[:success] = "Article created"
 			redirect_to user_article_path(@article.title)
 		else
-			render :new	
+			render :new
 		end
 	end
 
@@ -32,7 +32,7 @@ class ArticlesController < ApplicationController
 			redirect_to user_article_path(@article.title)
 		else
 			@feed_items = []
-			redirect_to root_url	
+			redirect_to root_url
 		end
 	end
 

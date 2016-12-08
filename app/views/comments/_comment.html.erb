@@ -1,11 +1,11 @@
 
 <h4><%= simple_format comment.comment%></h4>
 <small>
-	by : <%= link_to comment.user.name, user_profile_path(comment.user.username) %> 
-	<% if can? :update, comment %>
-		| <%= link_to "Edit", edit_article_comment_path(comment.article, comment) %> 
+	by : <%= link_to comment.user.name, user_profile_path(comment.user.username) if comment.user %>
+	<% if (user_signed_in?) && (can? :update, comment) %>
+		| <%= link_to "Edit", edit_article_comment_path(comment.article, comment) %>
 	<% end -%>
-	<% if can? :destroy, comment %> 
+	<% if (user_signed_in?) && (can? :destroy, comment) %>
 	  |	<%= link_to "Delete", [comment.article, comment], method: :delete, data: { confirm: "Are you sure?" } %>
 	 <% end -%>
 </small>

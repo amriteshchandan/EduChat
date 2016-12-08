@@ -20,15 +20,15 @@
 			<h3>Content</h3>
 			<h4><%= simple_format (@article.content.html_safe) %></h4>
 
-			<% if can? :update, @article %>
+			<% if (user_signed_in?) && (can? :update, @article) %>
 				<%= link_to "Edit", edit_user_article_path(:heading => @article.title), class: "btn" %>
 			<% end -%>
-			
+
 		</div>
 		<div class="clearfix"></div>
 		<hr>
 		<div class="col-md-3">
-			
+
 		</div>
 
 		<div class="col-md-9">
@@ -38,7 +38,12 @@
 				<%= render @article.comments %>
 			</div>
 			<h3>Reply To Article</h3>
-			<%= render "comments/form" %>	
+			<% if user_signed_in? %>
+			  	<%= render "comments/form" %>
+			<% else %>
+				<h3>Login to comment</h3>
+			<% end %>
+
 		</div>
 	</div>
 </div>

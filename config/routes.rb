@@ -13,9 +13,9 @@ Rails.application.routes.draw do
   delete 'articles/:title', to: 'articles#destroy', as: 'destroy_article'
 
   resources :user_technologies
-  
+
   get 'interests/', to: 'user_technologies#new', as: 'interests'
-  
+
   post 'user_technologies/create'
 
   get 'technologies/:name', to: 'technologies#show',as: 'technology_name'
